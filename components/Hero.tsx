@@ -79,7 +79,7 @@ export default function Hero() {
           </h1>
 
           <p className="mt-6 max-w-3xl border-l-2 border-primary/50 pl-5 text-base leading-8 text-muted-foreground md:text-lg">
-            I design scalable APIs, integration platforms, serverless workflows, and AI-powered automation with the practical details teams care about: clear ownership, observable failures, and calm production behavior.
+            I design and develop scalable APIs, integration platforms, serverless workflows, and AI-powered automation with the practical details teams care about: clear ownership, observable failures, and calm production behavior.
           </p>
 
           <div className="mt-8 flex items-center gap-3">
