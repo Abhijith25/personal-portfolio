@@ -1,6 +1,10 @@
 import React from "react";
 import Section from "./Section";
 
+import { Outfit } from "next/font/google";
+
+const outfit = Outfit({ subsets: ["latin"] });
+
 const principles = [
   "Architecture that stays readable after the launch rush",
   "AI features with validation, observability, and rollback paths",
@@ -11,19 +15,21 @@ export default function About() {
   return (
     <Section id="about" title="About Me" eyebrow="profile.readme">
       <div className="grid gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(320px,0.85fr)]">
-        <div className="space-y-5 text-lg leading-8 text-muted-foreground">
+        <div className="space-y-5 text-muted-foreground">
           <p className="text-2xl font-semibold leading-9 text-foreground">
             Backend engineer with a system-design brain and a strong bias for shipping reliable product work.
           </p>
-          <p>
-            I have over 4 years of experience building scalable backend architectures across fintech, lending, and enterprise SaaS platforms. At SurveySparrow, I lead the Integrations module and own architecture, delivery, and reliability for more than 30 external platform integrations.
-          </p>
-          <p>
-            My recent work blends backend depth with AI product engineering: GPT-4o and Gemini-powered survey response enrichment, serverless marketplace applications on AWS, and automation workflows that turn messy operational data into structured insight.
-          </p>
-          <p>
-            I enjoy the engineering work that happens after the demo: production escalations, API contracts, traceable failures, clean rollbacks, and systems that keep getting easier to reason about.
-          </p>
+          <div className={`space-y-4 text-[15px] leading-relaxed ${outfit.className}`}>
+            <p>
+              I have over 4 years of experience building scalable backend architectures across fintech, lending, and enterprise SaaS platforms. At SurveySparrow, I lead the Integrations module and own architecture, delivery, and reliability for more than 30 external platform integrations.
+            </p>
+            <p>
+              My recent work blends backend depth with AI product engineering: GPT-4o and Gemini-powered survey response enrichment, serverless marketplace applications on AWS, and automation workflows that turn messy operational data into structured insight.
+            </p>
+            <p>
+              I enjoy the engineering work that happens after the demo: production escalations, API contracts, traceable failures, clean rollbacks, and systems that keep getting easier to reason about.
+            </p>
+          </div>
         </div>
 
         <div className="editor-panel overflow-hidden rounded-lg">

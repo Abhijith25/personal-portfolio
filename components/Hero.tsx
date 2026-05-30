@@ -50,8 +50,32 @@ function AnimatedMetric({ value, suffix, decimals }: { value: number; suffix: st
 export default function Hero() {
   const [text, setText] = useState("");
   const fullText = "Abhijith";
+  const [isVisible, setIsVisible] = useState(false);
+  const heroRef = React.useRef<HTMLElement>(null);
 
   useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        } else {
+          setIsVisible(false);
+          setText(""); // Reset text so it retypes when coming back
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (heroRef.current) {
+      observer.observe(heroRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible) return;
+    
     let index = 0;
     const timer = setInterval(() => {
       index++;
@@ -61,10 +85,10 @@ export default function Hero() {
       }
     }, 100);
     return () => clearInterval(timer);
-  }, []);
+  }, [isVisible]);
 
   return (
-    <section className="relative min-h-screen overflow-hidden pt-20">
+    <section ref={heroRef} className="relative min-h-screen overflow-hidden pt-20">
       <Section className="relative z-10 flex min-h-[calc(100vh-5rem)] flex-col justify-center pb-20">
         <div className="max-w-5xl reveal-up">
           <div className="mb-6 inline-flex items-center gap-2 rounded-md border border-primary/40 bg-primary/10 px-3 py-2 font-mono text-xs font-semibold text-primary terminal-edge">

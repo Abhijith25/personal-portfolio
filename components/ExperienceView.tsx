@@ -71,9 +71,6 @@ export default function ExperienceView() {
                   <h3 className="text-xl font-semibold text-foreground">{exp.role}</h3>
                   <p className="mt-1 text-sm text-muted-foreground">{exp.company} / {exp.location}</p>
                 </div>
-                <span className="rounded-md border border-border bg-background/50 px-3 py-1 font-mono text-xs text-muted-foreground">
-                  job_{index + 1}
-                </span>
               </div>
               <ul className="mt-4 space-y-3 text-muted-foreground">
                 {exp.responsibilities.map((req, idx) => (
